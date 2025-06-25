@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gela Helping Hand Initiative</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS STYLES START HERE */
+        :root {
+            --primary-color: #2a9d8f;
+            --secondary-color: #e9c46a;
+            --accent-color: #f4a261;
+            --dark-color: #264653;
+            --light-color: #ffffff;
+            --background-color: #f7f9fb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-color);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+        
+        /* --- Navigation --- */
+        .navbar {
+            background: var(--light-color);
+            color: var(--dark-color);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--dark-color);
+        }
+        
+        .logo svg {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            background: linear-gradient(rgba(38, 70, 83, 0.7), rgba(38, 70, 83, 0.7)), url('images/little.jpg') center center/cover no-repeat;
+            color: var(--light-color);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 70px; /* Adjust for fixed navbar */
+        }
+
+        #hero h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        /* --- General Section Styling --- */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- About Section --- */
+        #about .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .about-card {
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .about-card h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        /* --- Achievements Section --- */
+        #achievements {
+            background: var(--dark-color);
+            color: var(--light-color);
+        }
+        #achievements .section-title {
+            color: var(--light-color);
+        }
+         #achievements .section-title::after {
+            background: var(--secondary-color);
+        }
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        .achievement-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 8px;
+        }
+        .achievement-item .count {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            font-family: 'Poppins', sans-serif;
+        }
+        .achievement-item p {
+            font-size: 1rem;
+        }
+        
+        /* --- Gallery Section --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        /* --- Video Section --- */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- Grant Form Section --- */
+        #grant-form-section {
+            background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+        }
+        .form-container {
+            background: var(--light-color);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: auto;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(42, 157, 143, 0.5);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .btn-submit {
+            grid-column: 1 / -1;
+            background: var(--primary-color);
+            color: var(--light-color);
+            padding: 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            width: 100%;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-submit:hover {
+            background: #238a7e;
+        }
+
+        #form-message {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        /* --- Donation Section --- */
+        #donate {
+            background: var(--background-color);
+            text-align: center;
+        }
+
+        .donation-details {
+            background: var(--light-color);
+            border-left: 5px solid var(--accent-color);
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .donation-details h3 {
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .donation-details p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .donation-details strong {
+            color: var(--primary-color);
+        }
+        
+        /* --- Reviews Section --- */
+        #reviews {
+             background: #e9f5f3;
+        }
+        
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .review-card {
+            background: var(--light-color);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+            border-top: 4px solid var(--secondary-color);
+        }
+        
+        .review-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .review-card .author {
+            font-weight: bold;
+            color: var(--primary-color);
+            text-align: right;
+        }
+        
+        /* --- Footer --- */
+        footer {
+            background: var(--dark-color);
+            color: var(--light-color);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-content h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .social-media {
+            list-style: none;
+            display: flex;
+            margin: 20px 0;
+        }
+        
+        .social-media li {
+            margin: 0 15px;
+        }
+
+        .social-media a {
+            color: var(--light-color);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-media a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-bottom {
+            margin-top: 20px;
+            border-top: 1px solid #4a6e7a;
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .admin-link {
+            color: #7b9aaa;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        
+        /* --- Admin Dashboard --- */
+        #admin-dashboard {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            color: white;
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 40px auto;
+        }
+        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        #logout-btn {
+            background: var(--accent-color);
+            color: var(--dark-color);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .dashboard-section {
+            background: #2c3e50;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .dashboard-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .applicant-table-wrapper {
+            overflow-x: auto;
+        }
+
+        .applicant-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .applicant-table th, .applicant-table td {
+            padding: 12px;
+            border: 1px solid #4a6e7a;
+            text-align: left;
+        }
+        
+        .applicant-table th {
+            background: var(--primary-color);
+        }
+        
+        .applicant-table img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .donors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .donor-card {
+            background: #34495e;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .logo h1 {
+                font-size: 1.2rem;
+            }
+            .nav-links {
+                display: none; /* Simple hide for demo, could be a hamburger menu */
+            }
+            #hero {
+                margin-top: 65px;
+            }
+            #hero h2 {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-group.full-width {
+                grid-column: 1;
+            }
+            .dashboard-container {
+                 margin: 20px auto;
+            }
+            .applicant-table td, .applicant-table th {
+                font-size: 0.8rem;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <main id="main-content">
+        <!-- HEADER / NAVIGATION -->
+        <nav class="navbar">
+            <div class="container">
+                <a href="#" class="logo">
+                    <!-- Mind-blowing unique AI logo (SVG) -->
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:var(--primary-color);stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:var(--secondary-color);stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <path fill="url(#logoGradient)" d="M73.4,21.2c-7.9-7.9-20.6-7.9-28.5,0L23.4,42.6c-1.3,1.3-3.1,2.1-4.9,2.1H10c-3.3,0-6,2.7-6,6v24.5c0,3.3,2.7,6,6,6h16.5c3.3,0,6-2.7,6-6V59.4c0-1.8,0.7-3.6,2.1-4.9l7.8-7.8c0.6-0.6,1.4-1.1,2.1-1.6c-1.7,4.5-0.7,9.6,2.8,13.2c5.3,5.3,13.8,5.3,19.1,0c5.3-5.3,5.3-13.8,0-19.1C82.1,32.9,78.7,26.5,73.4,21.2z"/>
+                        <path fill="var(--accent-color)" d="M96,50c0,11.5-6.2,21.7-15.5,26.8c-1.2,0.6-2.5,0.9-3.9,0.9c-2.3,0-4.6-0.9-6.3-2.6c-4.2-4.2-4.8-10.9-1.6-15.9c2.3-3.6,5.6-6.4,9.5-8c0.6,1,1.3,1.9,2.1,2.8c1.6,1.6,3.8,2.5,6,2.5c4.7,0,8.5-3.8,8.5-8.5S85.2,40,80.5,40c-0.2,0-0.3,0-0.5,0c-0.6-4.5-2.8-8.6-6.1-11.9c-0.8-0.8-1.6-1.5-2.4-2.1C81.9,23.3,96,35.6,96,50z"/>
+    				</svg>
+                    <h1>Gela Helping Hand</h1>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#gallery">Events</a></li>
+                    <li><a href="#grant-form-section">Apply for Grant</a></li>
+                    <li><a href="#donate">Donate</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- HERO SECTION -->
+        <section id="hero">
+            <h2>Empowering Lives, Building Futures</h2>
+            <p>Gela Helping Hand Initiative is a beacon of hope, dedicated to lifting communities in Nigeria and across Africa out of poverty through sustainable empowerment, education, and direct support.</p>
+            <a href="#grant-form-section" class="btn">Apply for a Grant</a>
+        </section>
+
+        <!-- MAIN CONTENT SECTIONS -->
+        <div class="container">
+            <!-- ABOUT US (Mission, Vision, Goals) -->
+            <section id="about" class="section">
+                <h2 class="section-title">Our Purpose</h2>
+                <div class="about-content">
+                    <div class="about-card">
+                        <h3>Our Mission</h3>
+                        <p>To eradicate poverty in Nigeria by providing financial grants, skill acquisition programs, and educational support to empower individuals and families to build self-reliant, sustainable futures.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Our Vision</h3>
+                        <p>We envision a Nigeria where every citizen has the opportunity to achieve their full potential, free from the constraints of poverty, and can contribute meaningfully to the nation's growth.</p>
+                    </div>
+                    <div class="about-card">
+                        <h3>Our Goals</h3>
+                        <p>To support 10,000 entrepreneurs by 2030, provide educational scholarships to 5,000 students, and establish community health outreach programs in all 36 states of Nigeria.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- ACHIEVEMENTS -->
+            <section id="achievements" class="section">
+                 <div class="container">
+                    <h2 class="section-title">Our Impact So Far</h2>
+                    <div class="achievements-grid">
+                        <div class="achievement-item">
+                            <div class="count">5,000+</div>
+                            <p>Small Businesses Funded</p>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="count">2,500+</div>
+                            <p>Students on Scholarship</p>
+                        </div>
+                        <div class="achievement-item">
+                             <div class="count">10,000+</div>
+                            <p>Families Given Food Aid</p>
+                        </div>
+                        <div class="achievement-item">
+                             <div class="count">15</div>
+                            <p>States Reached</p>
+                        </div>
+                    </div>
+                 </div>
+            </section>
+
+            <!-- IMAGE GALLERY -->
+            <section id="gallery" class="section">
+                <h2 class="section-title">Moments of Hope</h2>
+                <div class="gallery-grid">
+                    <!-- Replace these with actual event images -->
+                    <img src="images/OIP (4).jpg" alt="Helping hand event 1">
+                    <img src="images/load.jpg" alt="Community outreach">
+                    <img src="images/food.jpg" alt="Distributing aid">
+                    <img src="images/women.webp" alt="Empowered woman">
+                    <img src="images/award.webp" alt="Children receiving school supplies">
+                    <img src="images/download.jpg" alt="Skill acquisition program">
+                </div>
+            </section>
+
+            <!-- VIDEO SECTION -->
+            <section id="videos" class="section">
+                <h2 class="section-title">See Our Work in Action</h2>
+                <div class="video-grid">
+                    <!-- Replace video IDs with your actual YouTube video IDs -->
+                    <div class="video-wrapper">
+                        <iframe width="745" height="419" src="https://www.youtube.com/embed/NWwoN3o6e7g" title="NGOs Seek Inclusion In Poverty Alleviation Programmes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-wrapper">
+                       <iframe width="745" height="419" src="https://www.youtube.com/embed/iNarqeGGVaM" title="Coalition&#39;s Presidential Ticket Open For Both North &amp; South - Kenneth Okonkwo | Sunday Politics" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-wrapper">
+                       <iframe width="745" height="419" src="https://www.youtube.com/embed/KqArceXSZco" title="NGO Gives Food Items To Widows Of Fallen Heroes In Abuja" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- GRANT APPLICATION FORM -->
+        <section id="grant-form-section" class="section">
+            <div class="container">
+                <div class="form-container">
+                    <h2 class="section-title">Apply for a Grant</h2>
+                    <p style="text-align: center; margin-bottom: 30px;">Fill out the form below to apply for financial assistance. Our team will review your application and get in touch.</p>
+                    <form id="grant-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" name="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="address">Home Address</label>
+                                <input type="text" id="address" name="address" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State of Origin</label>
+                                <select id="state" name="state" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="lga">Local Government</label>
+                                <select id="lga" name="lga" required>
+                                    <option value="">-- Select State First --</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="occupation">Occupation</label>
+                                <input type="text" id="occupation" name="occupation" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nin">NIN (National Identification Number)</label>
+                                <input type="text" id="nin" name="nin" required pattern="\d{11}" title="NIN must be 11 digits">
+                            </div>
+                            <div class="form-group">
+                                <label for="passport">Passport Photo</label>
+                                <input type="file" id="passport" name="passport" accept="image/*" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="amount">Amount Needed (NGN)</label>
+                                <input type="number" id="amount" name="amount" required>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="purpose">Purpose of Grant</label>
+                                <textarea id="purpose" name="purpose" required></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit">Submit Application</button>
+                        </div>
+                        <div id="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- DONATION SECTION -->
+            <section id="donate" class="section">
+                <h2 class="section-title">Support Our Cause</h2>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto 30px;">Your donation can change a life. Every contribution, no matter the size, helps us reach more people in need. Join us in building a better Nigeria.</p>
+                <div class="donation-details">
+                    <h3>Official Bank Details for Donations</h3>
+                    <p><strong>Account Name:</strong> Gela Helping Hand Initiative</p>
+                    <p><strong>Bank Name:</strong> First Central Bank PLC</p>
+                    <p><strong>Account Number:</strong> 1234567890</p>
+                    <p><strong>Account Type:</strong> Current</p>
+                    <p style="margin-top:20px; font-size: 0.9em; color: #e74c3c;"><em>Disclaimer: These account details are for demonstration purposes only.</em></p>
+                </div>
+            </section>
+
+            <!-- REVIEWS SECTION -->
+            <section id="reviews" class="section">
+                <h2 class="section-title">What People Are Saying</h2>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <p>"The grant I received from Gela Initiative helped me start my own tailoring shop. I can now feed my family and send my children to school. Thank you!"</p>
+                        <div class="author">- Mrs. Chidinma, Abia State</div>
+                    </div>
+                    <div class="review-card">
+                        <p>"I was about to drop out of university due to lack of funds. The educational scholarship was a miracle. I am now a graduate of engineering."</p>
+                        <div class="author">- Ahmed Bello, Kano State</div>
+                    </div>
+                    <div class="review-card">
+                        <p>"During the floods, Gela Helping Hand was the first to arrive with food and relief materials. They saved our community from starvation."</p>
+                        <div class="author">- Chief Olatunji, Bayelsa State</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- FOOTER -->
+        <footer id="footer">
+            <div class="container footer-content">
+                <h3>Gela Helping Hand Initiative</h3>
+                <p>Contact us to partner, volunteer, or learn more.</p>
+                <p><strong>Email:</strong> gelahelpinghandinitiative@gmail.com</p>
+                <p><strong>Phone:</strong> +234 8033765824</p>
+                
+                <ul class="social-media">
+                    <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                </ul>
+                
+                <div class="footer-bottom">
+                    <p>© 2025 Gela Helping Hand Initiative. All Rights Reserved.</p>
+                    <p><span class="admin-link" onclick="promptLogin()">Admin Login</span></p>
+                </div>
+            </div>
+        </footer>
+    </main>
+    
+    <!-- ADMIN DASHBOARD (HIDDEN) -->
+    <div id="admin-dashboard">
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h2>Admin Dashboard</h2>
+                <button id="logout-btn">Logout</button>
+            </div>
+            
+            <div class="dashboard-section">
+                <h3>Grant Applicants</h3>
+                <div class="applicant-table-wrapper">
+                    <table class="applicant-table">
+                        <thead>
+                            <tr>
+                                <th>Photo</th>
+                                <th>Full Name</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                                <th>State/LGA</th>
+                                <th>NIN</th>
+                                <th>Occupation</th>
+                                <th>Amount (NGN)</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody id="applicants-tbody">
+                           <!-- Applicant data will be inserted here by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="dashboard-section">
+                <h3>Foundation Donors</h3>
+                <div class="donors-grid" id="donors-grid">
+                    <!-- Donor data will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FontAwesome for Social Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script>
+    // JAVASCRIPT LOGIC STARTS HERE
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // --- State and LGA Data for Nigeria ---
+        const nigeriaStates = {
+            "Abia": ["Aba North", "Aba South", "Arochukwu", "Bende", "Ikwuano", "Isiala Ngwa North", "Isiala Ngwa South", "Isuikwuato", "Obi Ngwa", "Ohafia", "Osisioma", "Ugwunagbo", "Ukwa East", "Ukwa West", "Umuahia North", "Umuahia South", "Umu Nneochi"],
+            "Adamawa": ["Demsa", "Fufure", "Ganye", "Gayuk", "Gombi", "Grie", "Hong", "Jada", "Larmurde", "Madagali", "Maiha", "Mayo-Belwa", "Michika", "Mubi North", "Mubi South", "Numan", "Shelleng", "Song", "Toungo", "Yola North", "Yola South"],
+            "Akwa Ibom": ["Abak", "Eastern Obolo", "Eket", "Esit Eket", "Essien Udim", "Etim Ekpo", "Etinan", "Ibeno", "Ibesikpo Asutan", "Ibiono-Ibom", "Ika", "Ikono", "Ikot Abasi", "Ikot Ekpene", "Ini", "Itu", "Mbo", "Mkpat-Enin", "Nsit-Atai", "Nsit-Ibom", "Nsit-Ubium", "Obot Akara", "Okobo", "Onna", "Oron", "Oruk Anam", "Udung-Uko", "Ukanafun", "Uruan", "Urue-Offong/Oruko", "Uyo"],
+            "Anambra": ["Aguata", "Anambra East", "Anambra West", "Anaocha", "Awka North", "Awka South", "Ayamelum", "Dunukofia", "Ekwusigo", "Idemili North", "Idemili South", "Ihiala", "Njikoka", "Nnewi North", "Nnewi South", "Ogbaru", "Onitsha North", "Onitsha South", "Orumba North", "Orumba South", "Oyi"],
+            "Bauchi": ["Alkaleri", "Bauchi", "Bogoro", "Damban", "Darazo", "Dass", "Gamawa", "Ganjuwa", "Giade", "Itas/Gadau", "Jama'are", "Katagum", "Kirfi", "Misau", "Ningi", "Shira", "Tafawa Balewa", "Toro", "Warji", "Zaki"],
+            "Bayelsa": ["Brass", "Ekeremor", "Kolokuma/Opokuma", "Nembe", "Ogbia", "Sagbama", "Southern Ijaw", "Yenagoa"],
+            "Benue": ["Ado", "Agatu", "Apa", "Buruku", "Gboko", "Guma", "Gwer East", "Gwer West", "Katsina-Ala", "Konshisha", "Kwande", "Logo", "Makurdi", "Obi", "Ogbadibo", "Ohimini", "Oju", "Okpokwu", "Oturkpo", "Tarka", "Ukum", "Ushongo", "Vandeikya"],
+            "Borno": ["Abadam", "Askira/Uba", "Bama", "Bayo", "Biu", "Chibok", "Damboa", "Dikwa", "Gubio", "Guzamala", "Gwoza", "Hawul", "Jere", "Kaga", "Kala/Balge", "Konduga", "Kukawa", "Kwaya Kusar", "Mafa", "Magumeri", "Maiduguri", "Marte", "Mobbar", "Monguno", "Ngala", "Nganzai", "Shani"],
+            "Cross River": ["Abi", "Akamkpa", "Akpabuyo", "Bakassi", "Bekwarra", "Biase", "Boki", "Calabar Municipal", "Calabar South", "Etung", "Ikom", "Obanliku", "Obubra", "Obudu", "Odukpani", "Ogoja", "Yakuur", "Yala"],
+            "Delta": ["Aniocha North", "Aniocha South", "Bomadi", "Burutu", "Ethiope East", "Ethiope West", "Ika North East", "Ika South", "Isoko North", "Isoko South", "Ndokwa East", "Ndokwa West", "Okpe", "Oshimili North", "Oshimili South", "Patani", "Sapele", "Udu", "Ughelli North", "Ughelli South", "Ukwuani", "Uvwie", "Warri North", "Warri South", "Warri South West"],
+            "Ebonyi": ["Abakaliki", "Afikpo North", "Afikpo South (Edda)", "Ebonyi", "Ezza North", "Ezza South", "Ikwo", "Ishielu", "Ivo", "Izzi", "Ohaozara", "Ohaukwu", "Onicha"],
+            "Edo": ["Akoko-Edo", "Egor", "Esan Central", "Esan North-East", "Esan South-East", "Esan West", "Etsako Central", "Etsako East", "Etsako West", "Igueben", "Ikpoba Okha", "Orhionmwon", "Oredo", "Ovia North-East", "Ovia South-West", "Owan East", "Owan West", "Uhunmwonde"],
+            "Ekiti": ["Ado Ekiti", "Efon", "Ekiti East", "Ekiti South-West", "Ekiti West", "Emure", "Gbonyin", "Ido Osi", "Ijero", "Ikere", "Ikole", "Ilejemeje", "Irepodun/Ifelodun", "Ise/Orun", "Moba", "Oye"],
+            "Enugu": ["Aninri", "Awgu", "Enugu East", "Enugu North", "Enugu South", "Ezeagu", "Igbo Etiti", "Igbo Eze North", "Igbo Eze South", "Isi Uzo", "Nkanu East", "Nkanu West", "Nsukka", "Oji River", "Udenu", "Udi", "Uzo Uwani"],
+            "Gombe": ["Akko", "Balanga", "Billiri", "Dukku", "Funakaye", "Gombe", "Kaltungo", "Kwami", "Nafada", "Shongom", "Yamaltu/Deba"],
+            "Imo": ["Aboh Mbaise", "Ahiazu Mbaise", "Ehime Mbano", "Ezinihitte", "Ideato North", "Ideato South", "Ihitte/Uboma", "Ikeduru", "Isiala Mbano", "Isu", "Mbaitoli", "Ngor Okpala", "Njaba", "Nkwerre", "Nwangele", "Obowo", "Oguta", "Ohaji/Egbema", "Okigwe", "Orlu", "Orsu", "Oru East", "Oru West", "Owerri Municipal", "Owerri North", "Owerri West", "Unuimo"],
+            "Jigawa": ["Auyo", "Babura", "Biriniwa", "Birnin Kudu", "Buji", "Dutse", "Gagarawa", "Garki", "Gumel", "Guri", "Gwaram", "Gwiwa", "Hadejia", "Jahun", "Kafin Hausa", "Kazaure", "Kiri Kasama", "Kiyawa", "Kaugama", "Maigatari", "Malam Madori", "Miga", "Ringim", "Roni", "Sule Tankarkar", "Taura", "Yankwashi"],
+            "Kaduna": ["Birnin Gwari", "Chikun", "Giwa", "Igabi", "Ikara", "Jaba", "Jema'a", "Kachia", "Kaduna North", "Kaduna South", "Kagarko", "Kajuru", "Kaura", "Kauru", "Kubau", "Kudan", "Lere", "Makarfi", "Sabon Gari", "Sanga", "Soba", "Zangon Kataf", "Zaria"],
+            "Kano": ["Ajingi", "Albasu", "Bagwai", "Bebeji", "Bichi", "Bunkure", "Dala", "Dambatta", "Dawakin Kudu", "Dawakin Tofa", "Doguwa", "Fagge", "Gabasawa", "Garko", "Garun Mallam", "Gaya", "Gezawa", "Gwale", "Gwarzo", "Kabo", "Kano Municipal", "Karaye", "Kibiya", "Kiru", "Kumbotso", "Kunchi", "Kura", "Madobi", "Makoda", "Minjibir", "Nasarawa", "Rano", "Rimin Gado", "Rogo", "Shanono", "Sumaila", "Takai", "Tarauni", "Tofa", "Tsanyawa", "Tudun Wada", "Ungogo", "Warawa", "Wudil"],
+            "Katsina": ["Bakori", "Batagarawa", "Batsari", "Baure", "Bindawa", "Charanchi", "Dandume", "Danja", "Dan Musa", "Daura", "Dutsi", "Dutsin Ma", "Faskari", "Funtua", "Ingawa", "Jibia", "Kafur", "Kaita", "Kankara", "Kankia", "Katsina", "Kurfi", "Kusada", "Mai'Adua", "Malumfashi", "Mani", "Mashi", "Matazu", "Musawa", "Rimi", "Sabuwa", "Safana", "Sandamu", "Zango"],
+            "Kebbi": ["Aleiro", "Arewa Dandi", "Argungu", "Augie", "Bagudo", "Birnin Kebbi", "Bunza", "Dandi", "Fakai", "Gwandu", "Jega", "Kalgo", "Koko/Besse", "Maiyama", "Ngaski", "Sakaba", "Shanga", "Suru", "Wasagu/Danko", "Yauri", "Zuru"],
+            "Kogi": ["Adavi", "Ajaokuta", "Ankpa", "Bassa", "Dekina", "Ibaji", "Idah", "Igalamela Odolu", "Ijumu", "Kabba/Bunu", "Kogi", "Lokoja", "Mopa Muro", "Ofu", "Ogori/Magongo", "Okehi", "Okene", "Olamaboro", "Omala", "Yagba East", "Yagba West"],
+            "Kwara": ["Asa", "Baruten", "Edu", "Ekiti", "Ifelodun", "Ilorin East", "Ilorin South", "Ilorin West", "Irepodun", "Isin", "Kaiama", "Moro", "Offa", "Oke Ero", "Oyun", "Pategi"],
+            "Lagos": ["Agege", "Ajeromi-Ifelodun", "Alimosho", "Amuwo-Odofin", "Apapa", "Badagry", "Epe", "Eti Osa", "Ibeju-Lekki", "Ifako-Ijaiye", "Ikeja", "Ikorodu", "Kosofe", "Lagos Island", "Lagos Mainland", "Mushin", "Ojo", "Oshodi-Isolo", "Shomolu", "Surulere"],
+            "Nasarawa": ["Akwanga", "Awe", "Doma", "Karu", "Keana", "Keffi", "Lafia", "Nasarawa", "Nasarawa Egon", "Obi", "Toto", "Wamba"],
+            "Niger": ["Agaie", "Agwara", "Bida", "Borgu", "Bosso", "Chanchaga", "Edati", "Gbako", "Gurara", "Katcha", "Kontagora", "Lapai", "Lavun", "Magama", "Mariga", "Mashegu", "Mokwa", "Moya", "Paikoro", "Rafi", "Rijau", "Shiroro", "Suleja", "Tafa", "Wushishi"],
+            "Ogun": ["Abeokuta North", "Abeokuta South", "Ado-Odo/Ota", "Egbado North", "Egbado South", "Ewekoro", "Ifo", "Ijebu East", "Ijebu North", "Ijebu North East", "Ijebu Ode", "Ikenne", "Imeko Afon", "Ipokia", "Obafemi Owode", "Odeda", "Odogbolu", "Ogun Waterside", "Remo North", "Shagamu"],
+            "Ondo": ["Akoko North-East", "Akoko North-West", "Akoko South-West", "Akoko South-East", "Akure North", "Akure South", "Ese Odo", "Idanre", "Ifedore", "Ilaje", "Ile Oluji/Okeigbo", "Irele", "Odigbo", "Okitipupa", "Ondo East", "Ondo West", "Ose", "Owo"],
+            "Osun": ["Aiyedaade", "Aiyedire", "Atakunmosa East", "Atakunmosa West", "Boluwaduro", "Boripe", "Ede North", "Ede South", "Ife Central", "Ife East", "Ife North", "Ife South", "Egbedore", "Ejigbo", "Ifedayo", "Ifelodun", "Ila", "Ilesa East", "Ilesa West", "Irepodun", "Irewole", "Isokan", "Iwo", "Obokun", "Odo Otin", "Ola Oluwa", "Olorunda", "Oriade", "Orolu", "Osogbo"],
+            "Oyo": ["Afijio", "Akinyele", "Atiba", "Atisbo", "Egbeda", "Ibadan North", "Ibadan North-East", "Ibadan North-West", "Ibadan South-East", "Ibadan South-West", "Ibarapa Central", "Ibarapa East", "Ibarapa North", "Ido", "Irepo", "Iseyin", "Itesiwaju", "Iwajowa", "Kajola", "Lagelu", "Ogbomosho North", "Ogbomosho South", "Ogo Oluwa", "Olorunsogo", "Oluyole", "Ona Ara", "Orelope", "Ori Ire", "Oyo", "Oyo East", "Saki East", "Saki West", "Surulere"],
+            "Plateau": ["Bokkos", "Barkin Ladi", "Bassa", "Jos East", "Jos North", "Jos South", "Kanam", "Kanke", "Langtang North", "Langtang South", "Mangu", "Mikang", "Pankshin", "Qua'an Pan", "Riyom", "Shendam", "Wase"],
+            "Rivers": ["Port Harcourt", "Obio-Akpor", "Okrika", "Ogu–Bolo", "Eleme", "Tai", "Gokana", "Khana", "Oyigbo", "Opobo–Nkoro", "Andoni", "Bonny", "Degema", "Asari-Toru", "Akuku-Toru", "Abua–Odual", "Ahoada West", "Ahoada East", "Ogba–Egbema–Ndoni", "Emuoha", "Ikwerre", "Etche", "Omuma"],
+            "Sokoto": ["Binji", "Bodinga", "Dange Shuni", "Gada", "Goronyo", "Gudu", "Gwadabawa", "Illela", "Isa", "Kebbe", "Kware", "Rabah", "Sabon Birni", "Shagari", "Silame", "Sokoto North", "Sokoto South", "Tambuwal", "Tangaza", "Tureta", "Wamako", "Wurno", "Yabo"],
+            "Taraba": ["Ardo Kola", "Bali", "Donga", "Gashaka", "Gassol", "Ibi", "Jalingo", "Karim Lamido", "Kumi", "Lau", "Sardauna", "Takum", "Ussa", "Wukari", "Yorro", "Zing"],
+            "Yobe": ["Bade", "Bursari", "Damaturu", "Fika", "Fune", "Geidam", "Gujba", "Gulani", "Jakusko", "Karasuwa", "Machina", "Nangere", "Nguru", "Potiskum", "Tarmuwa", "Yunusari", "Yusufari"],
+            "Zamfara": ["Anka", "Bakura", "Birnin Magaji/Kiyaw", "Bukkuyum", "Bungudu", "Gummi", "Gusau", "Kaura Namoda", "Maradun", "Maru", "Shinkafi", "Talata Mafara", "Chafe", "Zurmi"]
+        };
+
+        const stateDropdown = document.getElementById('state');
+        const lgaDropdown = document.getElementById('lga');
+        
+        // Populate States
+        const states = Object.keys(nigeriaStates);
+        stateDropdown.innerHTML = '<option value="">-- Select State --</option>';
+        states.forEach(state => {
+            const option = document.createElement('option');
+            option.value = state;
+            option.textContent = state;
+            stateDropdown.appendChild(option);
+        });
+        
+        // Handle State Change
+        stateDropdown.addEventListener('change', (e) => {
+            const selectedState = e.target.value;
+            const lgas = nigeriaStates[selectedState] || [];
+            
+            lgaDropdown.innerHTML = '<option value="">-- Select LGA --</option>';
+            lgas.forEach(lga => {
+                const option = document.createElement('option');
+                option.value = lga;
+                option.textContent = lga;
+                lgaDropdown.appendChild(option);
+            });
+        });
+
+
+        // --- Grant Form Submission ---
+        const grantForm = document.getElementById('grant-form');
+        const formMessage = document.getElementById('form-message');
+        
+        grantForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(grantForm);
+            const applicantData = Object.fromEntries(formData.entries());
+            const passportFile = formData.get('passport');
+            
+            // Read the image file and convert to Base64 to store in localStorage
+            const reader = new FileReader();
+            reader.onloadend = function() {
+                applicantData.passport = reader.result; // Add Base64 image string to data
+                
+                // Save to localStorage
+                let applicants = JSON.parse(localStorage.getItem('gelaApplicants')) || [];
+                applicants.push(applicantData);
+                localStorage.setItem('gelaApplicants', JSON.stringify(applicants));
+                
+                // Show success message and reset form
+                formMessage.textContent = 'Application submitted successfully! We will review it and get back to you.';
+                formMessage.style.color = 'green';
+                grantForm.reset();
+                lgaDropdown.innerHTML = '<option value="">-- Select State First --</option>';
+                setTimeout(() => { formMessage.textContent = ''; }, 5000);
+            };
+
+            if (passportFile) {
+                reader.readAsDataURL(passportFile);
+            } else {
+                 // In case no file is selected but required is bypassed
+                formMessage.textContent = 'Please select a passport photo.';
+                formMessage.style.color = 'red';
+            }
+        });
+
+
+        // --- Admin Dashboard Logic ---
+        const adminDashboard = document.getElementById('admin-dashboard');
+        const mainContent = document.getElementById('main-content');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        window.promptLogin = function() {
+            const password = prompt('Enter Admin Password:');
+            if (password === 'GelaAdmin2024') { // Default password
+                showDashboard();
+            } else {
+                alert('Incorrect password!');
+            }
+        };
+        
+        logoutBtn.addEventListener('click', function() {
+            adminDashboard.style.display = 'none';
+            mainContent.style.display = 'block';
+        });
+
+        function showDashboard() {
+            mainContent.style.display = 'none';
+            adminDashboard.style.display = 'block';
+            populateDashboard();
+        }
+        
+        function populateDashboard() {
+            // Populate Applicants Table
+            const applicantsTbody = document.getElementById('applicants-tbody');
+            const applicants = JSON.parse(localStorage.getItem('gelaApplicants')) || [];
+            applicantsTbody.innerHTML = '';
+            
+            if (applicants.length === 0) {
+                 applicantsTbody.innerHTML = '<tr><td colspan="9" style="text-align:center;">No applications yet.</td></tr>';
+            } else {
+                applicants.forEach(app => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td><img src="${app.passport}" alt="Passport"></td>
+                        <td>${app.fullName}</td>
+                        <td>${app.phone}</td>
+                        <td>${app.address}</td>
+                        <td>${app.state} / ${app.lga}</td>
+                        <td>${app.nin}</td>
+                        <td>${app.occupation}</td>
+                        <td>${Number(app.amount).toLocaleString()}</td>
+                        <td>${app.purpose}</td>
+                    `;
+                    applicantsTbody.appendChild(row);
+                });
+            }
+            
+            // Populate Donors (using dummy data for this example)
+            const donorsGrid = document.getElementById('donors-grid');
+            const donors = [
+                { name: 'Dangote Foundation', amount: 'NGN 10,000,000' },
+                { name: 'MTN Nigeria', amount: 'NGN 5,000,000' },
+                { name: 'Mrs. Aisha Buhari', amount: 'NGN 2,500,000' },
+                { name: 'Anonymous Donor', amount: 'NGN 1,000,000' },
+                { name: 'GTBank PLC', amount: 'NGN 7,500,000' },
+                { name: 'Mr. Tony Elumelu', amount: 'NGN 8,000,000' },
+            ];
+            donorsGrid.innerHTML = '';
+            donors.forEach(donor => {
+                const card = document.createElement('div');
+                card.className = 'donor-card';
+                card.innerHTML = `
+                    <h4>${donor.name}</h4>
+                    <p>Donated: <strong>${donor.amount}</strong></p>
+                `;
+                donorsGrid.appendChild(card);
+            });
+        }
+
+    });
+    </script>
+</body>
+</html>
